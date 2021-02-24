@@ -1,7 +1,7 @@
 <body>
     <header>
         <div class="fluid-container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-expand-lg bg-dark mb-5">
                 <a class="navbar-brand" href="{{ route('home') }}">BOOLPRESS</a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
