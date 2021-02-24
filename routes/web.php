@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route home page
+Route::get('/', 'PageController@home')->name('home');
+
+//Route about page
+Route::get('about', 'PageController@about')->name('about');
+
+//Route contacts page
+Route::get('contacts', 'PageController@contacts')->name('contacts');
+
+//Route articles page
+Route::get('articles', 'PageController@articles')->name('articles');
+
+
+
+
 Route::get('articles_api', 'PageController@articles_api')->name('articles_api');
  

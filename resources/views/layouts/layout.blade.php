@@ -1,4 +1,4 @@
 @include('layouts.head')
 @include('layouts.header')
 @yield('main')
-@include('footer')
+@include('layouts.footer')
