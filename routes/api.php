@@ -18,23 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('articles', function () {
-    return response()->json([
-        'success'=>true,
-        'data'=> App\Article::all() 
-    ], 200);
-});
+//Rounte API Articles
+Route::get('articles', 'API\ArticleController@index');
 
-Route::get('categories', function () {
-    return response()->json([
-        'success'=>true,
-        'data'=> App\Category::all() 
-    ], 200);
-});
+//Rounte API Categories
+Route::get('categories', 'API\CategoryController@index');
 
-Route::get('tags', function () {
-    return response()->json([
-        'success'=>true,
-        'data'=> App\Tag::all() 
-    ], 200);
-});
+//Rounte API Tags
+Route::get('tags', 'API\TagController@index');
