@@ -9,7 +9,7 @@ class CreateArticlesTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return void xxx
      */
     public function up()
     {
@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->string('title', 50);
             $table->text('body');
-            $table->timestamps();
+            $table->timestamps();  
         });
     }
 
