@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,8 +15,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::All();
+        // $articles = Article::All();
         $articles = Article::latest()->get();
+        //dd($articles);
         return view('articles.index', compact('articles'));
     }
 
@@ -26,7 +28,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        return view('articles.crate', compact('tags'));
     }
 
     /**
@@ -48,7 +51,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('articles.show', compact('article'));
     }
 
     /**
