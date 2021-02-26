@@ -11,10 +11,10 @@ Articles
             <div class="my-5">
                 <h2 class="mb-5">My articles</h2>
                 
-                <button type="button" class="btn btn-primary">
+                <a href=" {{route('articles.create') }}"><button type="button" class="btn btn-primary">
                     <i class="fas fa-file"></i>
                     Create a new article
-                </button>
+                </button></a>
             </div>
             
             <table class="table">
@@ -31,10 +31,10 @@ Articles
                     <td>{{$article->id}}</td>
                     <td>{{$article->title}}</td>
                     <td>{{$article->body}}</td>
-                    <td><button type="button" class="btn btn-warning text-light">
+                    <td><a href="{{ route('articles.show', ['article'=>$article->id]) }}"><button type="button" class="btn btn-warning text-light">
                             <i class="fas fa-eye"></i>
                             View
-                        </button></td>
+                        </button></a></td>
                     <td><button type="button" class="btn btn-success">
                             <i class="fas fa-edit"></i>
                             Edit

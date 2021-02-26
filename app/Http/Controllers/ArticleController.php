@@ -27,9 +27,9 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         $tags = Tag::all();
-        return view('articles.crate', compact('tags'));
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -40,7 +40,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article= new Article;
+        $article->title = request('title');
+        $article->body = request('body');
+        $article->save();
+
+        return redirect()->route('articles.index');
     }
 
     /**
