@@ -8,7 +8,7 @@
                         <a class="nav-link active" href="{{ route('home') }}">Home</a>
                         <a class="nav-link" href="{{ route('about') }}">About</a>
                         <a class="nav-link" href="{{ route('contacts') }}">Contacts</a>
-                        <a class="nav-link" href="{{ route('articles') }}">Articles</a>
+                        <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
                     </div>
                 </div>
             </nav>

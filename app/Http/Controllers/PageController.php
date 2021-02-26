@@ -21,11 +21,6 @@ class PageController extends Controller
          return  view('pages.contacts');
     }
 
-    public function articles()
-    {
-         return  view('pages.articles');
-    }
-
     public function articles_api()
     {
          return  view('spa.articles');

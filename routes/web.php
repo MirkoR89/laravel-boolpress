@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*ROUTE PAGE*/
 //Route home page
 Route::get('/', 'PageController@home')->name('home');
 
@@ -24,10 +25,13 @@ Route::get('about', 'PageController@about')->name('about');
 Route::get('contacts', 'PageController@contacts')->name('contacts');
 
 //Route articles page
-Route::get('articles', 'PageController@articles')->name('articles');
+//Route::get('articles', 'PageController@articles')->name('articles');
 
+/*ROUTE CRUD*/
+//Route crude Aricles
+Route::resource('articles', 'ArticleController');
 
-
-
+/*ROUTE API*/
+//Route api articles
 Route::get('articles_api', 'PageController@articles_api')->name('articles_api');
  
