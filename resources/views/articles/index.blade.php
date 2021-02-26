@@ -35,7 +35,7 @@ Articles
                             <i class="fas fa-eye"></i>
                             View
                         </button></a></td>
-                    <td><button type="button" class="btn btn-success">
+                    <td><a href="{{ route('articles.edit', ['article'=>$article->id]) }}"><button type="button" class="btn btn-success">
                             <i class="fas fa-edit"></i>
                             Edit
                         </button></td>

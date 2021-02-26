@@ -1,5 +1,5 @@
 <footer>
-    <div class="container-fluid bg-dark mt-5">
+    <div class="container-fluid bg-dark">
         <span class="text-light text-center">This is my footer</span>
     </div>
 </footer>
