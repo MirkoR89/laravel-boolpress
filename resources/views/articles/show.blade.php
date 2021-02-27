@@ -11,7 +11,7 @@
                 <h2>Title: {{$article->title}}</h2>
                 <p>{{$article->body}}</p>
                 <span>{{$article->category}}</span>
-                <span>{{$article->tag}}</span>
+                {{-- <span>{{$article->tag}}</span> --}}
             </div>
         </section>
     </main>

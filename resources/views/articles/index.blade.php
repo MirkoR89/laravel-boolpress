@@ -46,14 +46,45 @@ Articles
                                 </button></td>
 
                         {{-- CRUD Delete --}}
-                        <form action="{{ route('articles.destroy', ['article'=>$article->id]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <td><button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                    Delete
-                                </button></td>
-                        </form>
+                        <!-- Button trigger modal -->
+                        <td><button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#destroy-{{$article->id}}">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button></td>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="destroy-{{$article->id}}" tabindex="-1" role="dialog" 
+                            aria-labelledby="article-destroy-{{$article->id}}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="article-destroy-{{$article->id}}">Delete article
+                                            {{$article->id}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            Are you sure?
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <form action="{{ route('articles.destroy', ['article'=>$article->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                     @endforeach
                 </tbody>

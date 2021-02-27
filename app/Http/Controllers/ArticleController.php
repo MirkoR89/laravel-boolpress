@@ -56,6 +56,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        // dd($article);
         return view('articles.show', compact('article'));
     }
 
