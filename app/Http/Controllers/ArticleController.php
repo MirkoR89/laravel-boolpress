@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // $articles = Article::All();
         $articles = Article::latest()->get();
-        //dd($articles);
+        
         return view('articles.index', compact('articles'));
     }
 
@@ -28,8 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {   
+        $categories = Category::all();
         $tags = Tag::all();
-        return view('articles.create', compact('tags'));
+        
+        return view('articles.create', compact('tags', 'categories'));
     }
 
     /**
@@ -40,12 +42,16 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article= new Article;
-        $article->title = request('title');
-        $article->body = request('body');
-        $article->save();
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
+        ]);
+        Article::create($validatedData);
 
-        return redirect()->route('articles.index');
+        $new_article = Article::orderBy('id', 'desc')->first();        
+        $new_article->tags()->attach($request->tags);
+        return redirect()->route('articles.show', $new_article);
     }
 
     /**
@@ -68,7 +74,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = Tag::all();
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     /**
@@ -80,8 +87,15 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'exists:tags,id'
+        ]);
+
         $data = $request->all();
-        $article->update($data);
+        $article->update($data); 
+        $article->tags()->sync($request->tags); 
 
         return redirect()->route('articles.index');
     }

@@ -12,6 +12,6 @@
                     </div>
                 </div>
             </nav>
+            @yield('jumbotron')
         </div>
     </header>
-

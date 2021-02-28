@@ -35,7 +35,7 @@ Articles
                         <td>{{$article->title}}</td>
                         <td>{{$article->body}}</td>
                         <td>{{$article->created_at}}</td>
-                        <td>{{$article->updated_at}}</td>  
+                        <td>{{$article->updated_at}}</td>
 
                         {{-- CRUD View --}}
                         <td><a href="{{ route('articles.show', ['article'=>$article->id]) }}"><button type="button"
@@ -53,13 +53,13 @@ Articles
                         {{-- CRUD Delete --}}
                         <!-- Button trigger modal -->
                         <td><button type="button" class="btn btn-danger" data-toggle="modal"
-                            data-target="#destroy-{{$article->id}}">
-                            <i class="fas fa-trash"></i>
-                            Delete
-                        </button></td>
+                                data-target="#destroy-{{$article->id}}">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button></td>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="destroy-{{$article->id}}" tabindex="-1" role="dialog" 
+                        <div class="modal fade" id="destroy-{{$article->id}}" tabindex="-1" role="dialog"
                             aria-labelledby="article-destroy-{{$article->id}}" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
