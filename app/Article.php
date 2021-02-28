@@ -8,7 +8,7 @@ class Article extends Model
 {
     protected $fillable = ['title', 'body'];
 
-    public function category()
+    public function category ()
     {
         return $this->belongsTo(Category::class);   
     }

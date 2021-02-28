@@ -20,8 +20,11 @@ Articles
             <table class="table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Title</th>
                         <th>Body</th>
+                        <th>Created</th>
+                        <th>Updated</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,6 +34,8 @@ Articles
                         <td>{{$article->id}}</td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->body}}</td>
+                        <td>{{$article->created_at}}</td>
+                        <td>{{$article->updated_at}}</td>  
 
                         {{-- CRUD View --}}
                         <td><a href="{{ route('articles.show', ['article'=>$article->id]) }}"><button type="button"
