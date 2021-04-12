@@ -28,10 +28,9 @@ class ArticleController extends Controller
      */
     public function create()
     {   
-        $categories = Category::all();
         $tags = Tag::all();
         
-        return view('articles.create', compact('tags', 'categories'));
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -44,8 +43,7 @@ class ArticleController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',
-            'body' => 'required',
-            'tags' => 'exists:tags,id'
+            'body' => 'required'
         ]);
         Article::create($validatedData);
 
@@ -93,8 +91,7 @@ class ArticleController extends Controller
             'tags' => 'exists:tags,id'
         ]);
 
-        $data = $request->all();
-        $article->update($data); 
+        $article->update($validatedData); 
         $article->tags()->sync($request->tags); 
 
         return redirect()->route('articles.index');
